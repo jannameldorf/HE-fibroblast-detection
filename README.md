@@ -45,7 +45,7 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-Note: This project requires [HEIP](https://github.com/ValeAri/HEIP) to be installed or accessible. Follow instructions from the HEIP repository to install and/or set up the HEIP segmentation toolkit. And set the path to your local HEIP folder in the batchscripts accordingly.
+Note: This project requires [HEIP](https://github.com/ValeAri/HEIP) to be installed and accessible. Follow instructions from the HEIP repository to install and/or set up the HEIP segmentation toolkit. And set the path to your local HEIP folder in the batchscripts accordingly.
 
 
 5) Load the Segmentation Model
@@ -91,8 +91,8 @@ project/
 
 **Notes**
 
-WSI Format: The pipeline uses .svs files. If your WSI is in another format, convert or adapt the scripts accordingly.
-Multiple Classifier Models: The repository can contain different classification models trained under various settings (e.g. untreated vs. treated tissue). The recommended model (e.g., fibroblast_classifier_vehicle.joblib) is used by default. You can change models by editing run_fibroblast_classifier.py.
+WSI Format: The pipeline uses .svs files. If your WSI is in another format, convert or adapt the scripts accordingly. The recommended slide magnification is 40×.
+Multiple Classifier Models: The repository can works with different classification models trained under various settings (e.g. untreated vs. treated tissue). The recommended model (e.g., fibroblast_classifier_vehicle.joblib) is used by default. You can change models by editing run_fibroblast_classifier.py.
 
 ## Usage
 
@@ -108,11 +108,11 @@ Submit the Pipeline (Slurm Example):
 sbatch run_fibroblast_pipeline.sh <slide_name.svs>
 ```
 
-Where <slide_name.svs> is located in slides/. The pipeline will:\
-1. Tile/Prep the WSI (generates patches in patches/).\
-2. Run HEIP to segment nuclei in patches_seg/.\
-3. Merge cell predictions into a single GeoJSON (patch_merging.py).\
-4. Classify fibroblasts using the Random Forest model (run_fibroblast_classifier.py).\
+Where <slide_name.svs> is located in slides/. The pipeline will:
+1. Tile/Prep the WSI (generates patches in patches/).
+2. Run HEIP to segment nuclei in patches_seg/.
+3. Merge cell predictions into a single GeoJSON (patch_merging.py).
+4. Classify fibroblasts using the Random Forest model (run_fibroblast_classifier.py).
 5. Dilate fibroblast outlines to approximate cytoplasm (fibroblast_dilation.py).
 
 Output:
@@ -120,7 +120,6 @@ The final outlines are saved in cells/<slide_name>_fibroblasts_dilated.geojson, 
 
 **Notes**
 
-Recommended Slide Magnification is 40×.\
 Depending on slide size, tissue coverage, and available hardware, the pipeline can be time-intensive. GPU acceleration is supported by HEIP if available, reducing inference time significantly.
 
 For questions related to this codebase and pipeline, please open an Issue or contact the corresponding authors as listed in the paper:\
