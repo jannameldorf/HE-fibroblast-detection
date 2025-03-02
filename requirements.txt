@@ -1,0 +1,22 @@
+# Core Python libraries used
+numpy
+pandas
+matplotlib
+pyarrow
+tqdm
+joblib
+scikit-learn
+
+# Image processing
+Pillow==9.5.0
+opencv-python
+scikit-image
+shapely
+
+# Specialized for HEIP
+histoprep == 1.0.8
+cellseg-models-pytorch[all]==0.1.16
+geopandas
+pytest
+omegaconf
+
