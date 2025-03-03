@@ -44,10 +44,11 @@ python scripts/patch_prep.py "${SLIDE_NAME}"
 CKPT_PATH="./segmentation_model/last.ckpt"
 DATA_PATH="./patches/${BASE_NAME}_patches/sample1_patches"
 RESULT_PATH="./patches_seg/${BASE_NAME}_seg"
-HEIP_PATH="/path/to/HEIP/src/scripts"  # Update as needed
+HEIP_PATH="/path/to/HEIP"  # Update as needed
 
 echo "==> Running HEIP Inference"
-python "$HEIP_PATH/infer_wsi.py" \
+export PYTHONPATH="${HEIP_PATH}:${PYTHONPATH}"
+python "$HEIP_PATH/src/scripts/infer_wsi.py" \
     --in_dir "$DATA_PATH" \
     --res_dir "$RESULT_PATH" \
     --ckpt_path "$CKPT_PATH" \
