@@ -4,7 +4,7 @@
 
 This repository contains the fibroblast detection pipeline accompanying the paper:
 
-**NNMT inhibition prevents cancer-associated fibroblast-mediated immunosuppression (not yet published)**
+**NNMT inhibition in cancer-associated fibroblasts restores antitumor immunity (not yet published)**
 
 The pipeline detects fibroblasts in H&E whole-slide images (WSIs) using morphological features. It leverages the HEIP toolkit to segment nuclei in the H&E images, then applies a Random Forest classifier (trained on specific morphological features directed by a pathologist) to identify fibroblasts. Finally, the pipeline dilates fibroblast outlines to approximate cytoplasm boundaries, producing output files loadable in QuPath (v0.5+ recommended).
 ## Installation
