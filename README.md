@@ -1,4 +1,5 @@
 # H&E Fibroblast Detection
+[![DOI](https://zenodo.org/badge/941603139.svg)](https://doi.org/10.5281/zenodo.15257915)
 
 ## Introduction
 
